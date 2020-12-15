@@ -6,7 +6,7 @@ export interface IBoardProps {
 }
 
 export class RandomImage extends Component<IBoardProps, {}> {
-  private images: string[] = [
+  private calledItems: string[] = [
     'https://media.nature.com/lw800/magazine-assets/d41586-020-01430-5/d41586-020-01430-5_17977552.jpg',
     'https://blog.consumerguide.com/wp-content/uploads/sites/2/2018/04/Honda-N-Box.png',
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paulo-bent-ply-leather-chair-o-1582926567.jpg',
@@ -15,7 +15,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
     'https://mk0mexiconewsdam2uje.kinstacdn.com/wp-content/uploads/2015/12/quetzal-flying-mejor.jpg'
   ];
 
-  private images2: string[] = [
+  private playerBoardItems: string[] = [
     'https://media.nature.com/lw800/magazine-assets/d41586-020-01430-5/d41586-020-01430-5_17977552.jpg',
     'https://blog.consumerguide.com/wp-content/uploads/sites/2/2018/04/Honda-N-Box.png',
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paulo-bent-ply-leather-chair-o-1582926567.jpg',
@@ -33,22 +33,25 @@ export class RandomImage extends Component<IBoardProps, {}> {
   };
 
   handleClick = () => {
-      var value = Math.floor(Math.random() * Math.floor(this.images.length));
-      for (var i= 0; i< this.images2.length; i++){
-        if(this.images[value] === this.images2[i]){
-            this.bingoPoints += 1;
-            this.images2.splice(value,1);
-        } 
-      } 
-      if(!this.images2.length){
+      var calledIndex = Math.random() % this.calledItems.length; 
+      var calledItem = this.calledItems[calledIndex];
+    
+      if(this.playerBoardItems.find(pbi =>  pbi === calledItem) ){
+        this.bingoPoints += 1;
+        this.playerBoardItems.splice(calledIndex,1);
+      }
+
+      if(this.playerBoardItems.length === 0){
           this.status = "winner";
       }
+
       this.setState({
-        images: this.images[value],
+        images: this.calledItems[calledIndex],
         bingoPoints: this.bingoPoints,
         status: this.status
       });   
-      this.images.splice(value,1);
+
+      this.calledItems.splice(calledIndex,1);
   }
 
   render() {
