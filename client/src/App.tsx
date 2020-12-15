@@ -1,15 +1,15 @@
-import React from 'react';
 import './App.css';
-import { Board } from './components/board/board';
+import { RandomImage } from './components/randomImage/randomImage';
+import { Board} from "./components/board/board";
 
-function App() {
-
-
+function App() { 
   return (
     <div className='App'>
       <header className='App-header'>
         Lingo
-      </header>
+      </header>  
+      
+      <RandomImage></RandomImage>
       <Board></Board>
     </div>
   );
