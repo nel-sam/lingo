@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { RandomImage } from './components/randomImage/randomImage';
 import { Board} from "./components/board/board";
 

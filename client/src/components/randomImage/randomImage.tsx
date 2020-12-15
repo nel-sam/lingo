@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Board} from "../board/board";
+
 
 export interface IBoardProps {
   txt?: string;
@@ -33,7 +33,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
   };
 
   handleClick = () => {
-      var calledIndex = Math.random() % this.calledItems.length; 
+      var calledIndex = Math.floor((Math.random() * 1000))% this.calledItems.length ; 
       var calledItem = this.calledItems[calledIndex];
     
       if(this.playerBoardItems.find(pbi =>  pbi === calledItem) ){
@@ -60,7 +60,9 @@ export class RandomImage extends Component<IBoardProps, {}> {
             <button onClick={this.handleClick}>choose</button>
             <p>Points: {this.state.bingoPoints}</p>
             <p>{this.state.status}</p>
-            <img alt="" className="cell-img" src={this.state.images}/>
+            {
+                this.state.images && <img alt="" className="cell-img" src={this.state.images}/>
+            }
         </div> 
         );
   }
