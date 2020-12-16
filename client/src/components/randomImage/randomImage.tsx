@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Button } from "@material-ui/core";
 
 export interface IBoardProps {
   allItems: string[];
@@ -41,7 +41,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
   render() {
         return (
         <div>
-            <button onClick={this.handleClick}>choose</button>
+            <Button variant="contained" color="primary" component="span" onClick={this.handleClick}>Choose</Button>
             <p>Points: {this.state.bingoPoints}</p>
             <p>{this.state.status}</p>
             {
