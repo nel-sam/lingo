@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { LingoCell } from "../../models/interfaces";
+import Button from '@material-ui/core/Button';
+
 
 
 export interface IBoardProps {
@@ -42,7 +44,9 @@ export class RandomImage extends Component<IBoardProps, {}> {
   render() {
         return (
         <div>
-            <button onClick={this.handleClick}>choose</button>
+            <Button variant="contained" color="primary" component="span" onClick={this.handleClick}>
+          Choose
+        </Button>
             <p>Points: {this.state.bingoPoints}</p>
             <p>{this.state.status}</p>
             {
