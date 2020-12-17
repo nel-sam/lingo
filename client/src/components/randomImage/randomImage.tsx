@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { LingoCell } from "../../models/interfaces";
 
 
 export interface IBoardProps {
-  allItems: string[];
-  playerBoardItems: string[];
+  allItems: LingoCell[];
+  playerBoardItems: LingoCell[];
 }
 
 export class RandomImage extends Component<IBoardProps, {}> {
@@ -11,7 +12,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
   status="";
 
   state = {
-      images: "",
+    calledItem: {} as LingoCell,
       bingoPoints: 0,
       status: ""
   };
@@ -20,7 +21,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
       var calledIndex = Math.floor((Math.random() * 1000))% this.props.allItems.length ;
       var calledItem = this.props.allItems[calledIndex];
 
-      if(this.props.playerBoardItems.find(pbi =>  pbi === calledItem) ){
+      if(this.props.playerBoardItems.find(pbi =>  pbi.Id === calledItem.Id) ){
         this.bingoPoints += 1;
         this.props.playerBoardItems.splice(calledIndex,1);
       }
@@ -30,7 +31,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
       }
 
       this.setState({
-        images: this.props.allItems[calledIndex],
+        calledItem: this.props.allItems[calledIndex],
         bingoPoints: this.bingoPoints,
         status: this.status
       });
@@ -45,7 +46,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
             <p>Points: {this.state.bingoPoints}</p>
             <p>{this.state.status}</p>
             {
-                this.state.images && <img alt="" className="cell-img" src={this.state.images}/>
+                this.state.calledItem && <img alt="" className="cell-img" src={this.state.calledItem.Url}/>
             }
         </div>
         );
