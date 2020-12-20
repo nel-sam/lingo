@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './randomImage.scss';
 import { LingoCell } from "../../models/interfaces";
 import Button from '@material-ui/core/Button';
 
@@ -53,7 +54,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
                 this.state.calledItem && <img alt="" className="cell-img" src={this.state.calledItem.Url}/>
             }
         </div>
-        );
+        )
   }
 }
 

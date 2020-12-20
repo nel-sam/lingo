@@ -1,18 +1,27 @@
+.board-header {
+  padding: 2rem;
+  color: white;
+  background-color: #3f51b5;
+}
+
 .container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  background-color: blue;
-  height: 20rem;
-  width: 30rem;
-}
+  min-height: 30rem;
+  min-width: 30rem;
+  max-height: 80rem;
+  max-width: 80rem;
 
-.cell {
-  background: grey;
-  border: black solid 0.2rem;
-}
+  .cell {
+    border: darkgray solid 1px;
+    padding: 0.5rem;
+    align-items: center;
+    overflow: hidden;
+    max-width:230px;
+    max-height:230px;
 
-.cell-img {
-  width: 100%;
-  height: 100%;
+    .cell-img {
+      object-fit: cover;
+      max-width: 99%;
+      max-height: 99%;
+    }
+  }
 }
