@@ -16,6 +16,7 @@ namespace api
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,6 +29,10 @@ namespace api
         {
 
             services.AddControllers();
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                                    .AllowAnyMethod()
+                                                                     .AllowAnyHeader())); 
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api", Version = "v1" });
@@ -44,6 +49,8 @@ namespace api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "api v1"));
             }
 
+
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
 
             app.UseRouting();

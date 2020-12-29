@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 
 namespace api.Controllers
 {
@@ -12,11 +10,7 @@ namespace api.Controllers
     [Route("[controller]")]
     public class BoardController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
+      
         private readonly ILogger<BoardController> _logger;
 
         public BoardController(ILogger<BoardController> logger)
@@ -26,8 +20,10 @@ namespace api.Controllers
      
         [HttpGet]
         [Route("Board")]
+
         public Board GetBoard()
         {
+            _logger.LogInformation("User has requested Board");
             var board = new Board();
             board.Cells = new List<Cell>()
             {
