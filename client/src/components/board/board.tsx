@@ -4,7 +4,6 @@ import { LingoCell, LingoPlayer } from '../../models/interfaces';
 import Grid from '@material-ui/core/Grid';
 
 export interface IBoardProps {
-  boardItems: LingoCell[];
   playerInfo: LingoPlayer;
 }
 
@@ -17,7 +16,7 @@ export class Board extends Component<IBoardProps, {}> {
       
       <Grid container className='container'>
       {
-        this.props.boardItems.map(function (cellItem) {
+        this.props.playerInfo.board.cells.map(function (cellItem) {
           return (
               <Grid key={cellItem.id} container item className='cell'>
                 <img alt='' className='cell-img' src={cellItem.url}/>

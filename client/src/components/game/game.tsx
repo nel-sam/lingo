@@ -30,7 +30,7 @@ export class Game extends Component<IProps, GameState> {
       game: await this.boardService.getGame(),
     });
   }
-
+  
   render() {
     return <div className='game'>
       <header className='game-header'>
@@ -38,7 +38,7 @@ export class Game extends Component<IProps, GameState> {
       </header>
       {this.state?.game?.players && this.state.game?.players.map(function (player) {
         return (<div>
-          <Board boardItems={player.board.cells} playerInfo={player}></Board>
+          <Board playerInfo={player}></Board>
         </div>);
       })}
     </div>
