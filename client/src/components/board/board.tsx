@@ -18,8 +18,8 @@ export class Board extends Component<IBoardProps, {}> {
       {
         this.props.playerInfo.board.cells.map(function (cellItem) {
           return (
-              <Grid key={cellItem.id} container item className='cell'>
-                <img alt='' className='cell-img' src={cellItem.url}/>
+              <Grid key={cellItem.key} container item className='cell'>
+                <img alt='' className='cell-img' src={cellItem.imageUrl}/>
               </Grid>
           )
         })

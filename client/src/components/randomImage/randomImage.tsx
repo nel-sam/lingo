@@ -27,7 +27,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
     var calledIndex = Math.floor((Math.random() * 1000)) % this.props.allItems.length;
     var calledItem = this.props.allItems[calledIndex];
 
-    if (this.props.playerBoardItems.find(pbi => pbi.id === calledItem.id)) {
+    if (this.props.playerBoardItems.find(pbi => pbi.key === calledItem.key)) {
       this.bingoPoints += 1;
       this.props.playerBoardItems.splice(calledIndex, 1);
     }
@@ -51,7 +51,7 @@ export class RandomImage extends Component<IBoardProps, {}> {
         <p>{this.state.status}</p>
         {
           this.state.calledItem &&
-          <img alt="" className="cell-img" src={this.state.calledItem.url} />
+          <img alt="" className="cell-img" src={this.state.calledItem.imageUrl} />
         }
       </div>
     )

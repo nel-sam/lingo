@@ -1,6 +1,6 @@
 export interface LingoCell {
-  id: string;
-  url: string;
+  key: string;
+  imageUrl: string;
 }
 
 export interface LingoBoard{

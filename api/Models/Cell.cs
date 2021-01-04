@@ -1,11 +1,11 @@
 using System;
+
 namespace api.Models
 {
     public class Cell
     {
-        public int CellId { get; set; }
-
-        public Guid Id { get; set; }
-        public string Url { get; set; }
+        public int Id { get; set; }
+        public Guid Key { get; set; }
+        public Uri ImageUrl { get; set; }
     }
 }
