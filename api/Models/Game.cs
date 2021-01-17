@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace api.Models
 {
@@ -9,6 +8,7 @@ namespace api.Models
         public int GameId { get; set; }
         public Guid Key { get; set; }
 
+        public List<GamePlayerBoard> GamePlayerBoards { get; set; }
         public List<Player> Players { get; set; }
-    } 
+    }
 }

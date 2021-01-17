@@ -11,10 +11,5 @@ namespace api.Models
         public IList<BoardCell> BoardCells { get; set; }
 
         public IList<Board> Boards { get; set;}
-        
-        // public int BoardId { get; set; }
-        // public Board Board { get; set; }
-
-
     }
 }

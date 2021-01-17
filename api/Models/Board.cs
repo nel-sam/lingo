@@ -9,9 +9,12 @@ namespace api.Models
         public Guid Key { get; set; }
 
         public IList<BoardCell> BoardCells { get; set; }
-
+        public IList<GamePlayerBoard> GamePlayerBoards { get; set; }
 
         public int PlayerId { get; set; }
         public Player Player { get; set; }
+
+        public int GameId { get; set; }
+        public Game Game { get; set; }
     }
 }
