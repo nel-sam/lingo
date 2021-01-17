@@ -1,8 +1,7 @@
-USE lingo;
 
 IF OBJECT_ID('dbo.Cell', 'U') IS NOT NULL 
   DROP TABLE dbo.Cell; 
-  
+
 CREATE TABLE Cell (
     Id INT NOT NULL IDENTITY PRIMARY KEY,
     [Key] VARCHAR(36),
