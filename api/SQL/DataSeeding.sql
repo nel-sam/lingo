@@ -38,7 +38,7 @@ VALUES
     ('5d516a2b-932-481c-b98e-89831ae4a732');
 
 INSERT INTO GamePlayerBoard
-    (BoardId, GameId, PlayerId)
+    (GameId, BoardId, PlayerId)
 VALUES
     (1, 1, 1),
     (1, 2, 2);
