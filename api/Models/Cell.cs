@@ -5,7 +5,7 @@ namespace api.Models
 {
     public class Cell
     {
-        public int CellId { get; set; }
+        public int Id { get; set; }
         public Guid Key { get; set; }
         public Uri ImageUrl { get; set; }
         public IList<BoardCell> BoardCells { get; set; }

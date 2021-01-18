@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
+using api.Service;
+using api.Models.Data_Transfer_Objects;
 
 namespace api.Controllers
 {
@@ -10,20 +10,21 @@ namespace api.Controllers
     [Route("[controller]")]
     public class GameController : ControllerBase
     {
-      
+        private GameService gameService;
         private readonly ILogger<GameController> _logger;
 
         public GameController(ILogger<GameController> logger)
         {
             _logger = logger;
+            gameService = new GameService();
         }
      
         [HttpGet]
-        public Game GetGame()
+        public List<GameDto> GetGame()
         {
             _logger.LogInformation("User has requested Board");
            
-            return null;
+            return gameService.GetGames();
         }
     }
 }
